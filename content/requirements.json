@@ -1,0 +1,69 @@
+{
+  "kicker": "Call fit",
+  "title": "Every requirement, mapped",
+  "lede": "Each requirement below comes from the official documents. Next to it: what QUERRA will do, and an honest status today. Nothing is marked in place without evidence.",
+  "checked": "Documents checked on 7 November 2026: Open Call page, Annex 1 (Guidelines), Annex 1.1 (Technical Specification), Annex 2 (Proposal template), Annex 2.1 (F6S form), FAQ v1.0.",
+  "statuses": {
+    "in-place": { "label": "In place", "help": "Exists today; evidence named" },
+    "planned": { "label": "Planned", "help": "In the work plan; not done yet" },
+    "decision": { "label": "Decision needed", "help": "The owner must choose or confirm" },
+    "gap": { "label": "Gap", "help": "Known shortfall that must be closed" }
+  },
+  "sources": {
+    "Annex 1": "https://nostradamus-project.eu/wp-content/uploads/2026/10/Nostradamus-OC1-Annex-1-Guidelines-for-Applicants-v_1.1-UPDATED.pdf",
+    "Annex 1.1": "https://nostradamus-project.eu/wp-content/uploads/2026/09/Nostradamus-OC1-Annex-1.1-Technical-Specifications-v_1.0.pdf",
+    "Annex 2": "https://nostradamus-project.eu/wp-content/uploads/2026/09/Nostradamus-OC1-Annex-2-Technical-Proposal-Template-v_1.0.docx",
+    "Annex 2.1": "https://nostradamus-project.eu/wp-content/uploads/2026/10/Nostradamus-OC1-Annex-2.1-Application-form-at-the-F6S-platform_v_1.1.pdf",
+    "FAQ": "https://nostradamus-project.eu/wp-content/uploads/2026/09/FAQ-Nostradamus-OC1_V1.0_29.09.2026.pdf"
+  },
+  "items": [
+    { "cat": "Eligibility", "src": "Annex 1", "ref": "§3.1.1 · Table 2 #7, #13", "req": "A sole applicant must be an incorporated SME, start-up or small mid-cap in an EU or associated country, with a valid VAT number", "resp": "Confirm QUERRA's legal entity, VAT number and SME status before submission", "status": "decision" },
+    { "cat": "Eligibility", "src": "Annex 2.1", "ref": "Q8", "req": "PIC number (or N/A)", "resp": "Register a PIC in the EU Participant Register", "status": "decision" },
+    { "cat": "Eligibility", "src": "Annex 1", "ref": "Table 2 #14 · §3.1.3", "req": "Starting maturity of at least TRL4", "resp": "TRL4 evidence pack targeted for 28 Nov 2026, described inside the proposal", "status": "gap", "evidence": "Not yet declared" },
+    { "cat": "Eligibility", "src": "Annex 1", "ref": "Table 2 #6 · §3.1.3", "req": "Exactly one topic", "resp": "T4: smart and predictive pest and disease management", "status": "in-place", "evidence": "Decided for this proposal" },
+    { "cat": "Eligibility", "src": "Annex 1", "ref": "§3.1.4 · §3.1.5", "req": "One proposal per entity; no double funding; no conflict of interest with the Nostradamus consortium", "resp": "Choose any second partner only after checking links to consortium partners (e.g. ECoE)", "status": "decision" },
+    { "cat": "Eligibility", "src": "Annex 2", "ref": "Instructions", "req": "Official template, at most 20 pages, Calibri 11, English, PDF; the proposal must be self-contained", "resp": "Key figures and evidence go inside the PDF; this website is not relied on by evaluators", "status": "planned" },
+    { "cat": "Eligibility", "src": "Annex 1", "ref": "Table 2 #2 · #12 · #15", "req": "Submit on F6S by 2 Dec 2026, 17:00 CET; at most €50,000; fixed 12 months", "resp": "Budget and plan built for 12 months and within the cap", "status": "planned" },
+
+    { "cat": "Topic & M4", "src": "Annex 1.1", "ref": "Table 3 note", "req": "Choosing T4 commits the project to use Module M4 and its datasets", "resp": "The scouting round is driven by M4 risk and crop-stage outputs and checks them in the field (see The M4 loop)", "status": "planned" },
+    { "cat": "Topic & M4", "src": "Annex 1.1", "ref": "§2.8 (M4)", "req": "M4 outputs are open, but its models are proprietary to ECoE", "resp": "Consume outputs only; never re-implement or redistribute M4 models", "status": "planned" },
+    { "cat": "Topic & M4", "src": "Annex 1.1", "ref": "§3.2", "req": "Build on needs identified through the Multi-Actor Platforms (MAPs) and surveys", "resp": "Co-design with the primary site's MAP in Sprint 2; trace each input to a requirement", "status": "planned" },
+    { "cat": "Topic & M4", "src": "Annex 1.1", "ref": "§3.2", "req": "Decision support for farmers, advisors and cooperatives that reduces administrative burden", "resp": "Structured, reviewed field records replace ad-hoc notes; the app records decisions and never prescribes", "status": "planned" },
+    { "cat": "Topic & M4", "src": "Annex 1.1", "ref": "Table 15 · §8.1", "req": "One primary demonstration site (Cyprus or Germany for T4); the other is the paired secondary region", "resp": "Choose the primary site. Cyprus is M4's development site with weekly in-situ stress observations; Germany is M4's replication site", "status": "decision" },
+
+    { "cat": "Architecture", "src": "Annex 1.1", "ref": "§3.1 · §3.2", "req": "Implement and compare edge, cloud and mixed solutions", "resp": "Run the same workflow in all three set-ups and measure latency, energy, data volume and losses", "status": "planned" },
+    { "cat": "Architecture", "src": "Annex 1.1", "ref": "§3.7.1", "req": "Edge components keep working offline and buffer data locally with no loss", "resp": "Capture and inference already run on the Jetson; local buffering and sync are planned", "status": "planned", "evidence": "Inference on the device: engineer report, export pending" },
+    { "cat": "Architecture", "src": "Annex 1.1", "ref": "§3.7.1", "req": "Sync with lightweight protocols (MQTT; CoAP in development)", "resp": "Publish compact observation records to the IoT Observatory over MQTT", "status": "planned" },
+    { "cat": "Architecture", "src": "Annex 1.1", "ref": "§3.7.2 · Table 6", "req": "Assess and document the energy and performance trade-off across architectures", "resp": "Measure energy per observation and bytes sent on the field unit for each architecture", "status": "planned" },
+    { "cat": "Architecture", "src": "Annex 1.1", "ref": "§3.3.2", "req": "Portable across execution options A–C (containers, pinned dependencies, no hard-coded endpoints)", "resp": "OCI container with a lock file and external configuration", "status": "planned" },
+
+    { "cat": "Data", "src": "Annex 1.1", "ref": "§3.6 · FAQ", "req": "Data Cube work in Python inside Cube-in-a-Box, using dc.load", "resp": "M4 and EO context loaded through dc.load in the reference container", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "§3.6 · FAQ", "req": "IoT data only through the IoT Observatory Python SDK", "resp": "Read the site's weather and soil streams, and publish observations, through the SDK", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "REQ-DATA-EO-01…06", "req": "EO discovery through the STAC catalogue, signed URLs and cloud-native partial reads", "resp": "Replace the current public Sentinel-2 replay with STAC queries to the Nostradamus catalogue", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "REQ-DATA-03", "req": "State which Nostradamus data interfaces are used and why", "resp": "EO pipelines (context), Data Cube (M4 outputs), IoT Observatory (site weather and soil; our observations)", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "§3.5", "req": "FAIR data, REST APIs, OGC/ISO standards, INSPIRE metadata, AGROVOC/GEMET vocabularies", "resp": "GeoJSON/CSV observation records with AGROVOC terms and EPPO codes; documented REST endpoints", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "§3.5", "req": "AI model outputs in open formats (e.g. ONNX)", "resp": "Export the model to ONNX; TensorRT is only used as an on-device accelerator", "status": "planned" },
+    { "cat": "Data", "src": "Annex 1.1", "ref": "§3.2", "req": "External datasets are documented in the Nostradamus Data Dictionary and shared after the project", "resp": "Data Dictionary entries for every external source, including NASA POWER", "status": "planned" },
+
+    { "cat": "Open source", "src": "Annex 1.1", "ref": "REQ-POS-01 · 02 · FAQ", "req": "Public repository under an OSI licence, with installation, API and dependency documentation", "resp": "Public repository from Sprint 1 under an OSI licence such as Apache-2.0", "status": "planned" },
+    { "cat": "Open source", "src": "Annex 1.1", "ref": "REQ-POS-03 · 05", "req": "No personal data, credentials, tokens or keys in repositories", "resp": "Privacy checks are already enforced for this site (no GPS, no coordinates); the same checks apply to the app repository", "status": "in-place", "evidence": "tools/validate_content.py" },
+    { "cat": "Open source", "src": "Annex 1.1", "ref": "REQ-PROG-10", "req": "No proprietary dependency that prevents integration unless justified", "resp": "TensorRT is proprietary: justify it as an edge accelerator and ship an ONNX Runtime fallback", "status": "gap" },
+    { "cat": "Open source", "src": "Annex 1.1", "ref": "REQ-PROG-07 · 08 · 09", "req": "Python or supported tools, version control, integration tests against Nostradamus APIs", "resp": "Python pipelines with tests against the Data Cube and IoT Observatory interfaces", "status": "planned" },
+
+    { "cat": "Deliverables", "src": "Annex 2", "ref": "Table 2 · Sprint 1", "req": "At least 10 h of training, proof of connection, use-case brief, kick-off item, monthly posts, project profile", "resp": "Planned in Sprint 1", "status": "planned" },
+    { "cat": "Deliverables", "src": "Annex 2", "ref": "Table 2 · Sprint 2", "req": "Design report with stakeholder input and a deployment strategy signed off by mentors", "resp": "Planned in Sprint 2", "status": "planned" },
+    { "cat": "Deliverables", "src": "Annex 2", "ref": "Table 2 · Sprint 3", "req": "Implementation, documentation and validation reports, a demo video, structured validation datasets, one podcast appearance", "resp": "Planned in Sprint 3", "status": "planned" },
+    { "cat": "Deliverables", "src": "Annex 2", "ref": "Table 2 · Sprint 4", "req": "On-site demo and training with at least 10 attendees; training package; at least 40 survey responses; an EIP-AGRI practice abstract; exploitation plan; video", "resp": "Planned in Sprint 4; the 40 survey responses need outreach beyond the demo day", "status": "planned" },
+
+    { "cat": "Impact", "src": "Annex 1.1", "ref": "§10.1", "req": "Field-tested evidence for at least one target; for T4, a >40% reduction in pesticide use", "resp": "Paired-plot comparison of loop-guided versus standard decisions, to agree with the site partner", "status": "gap", "evidence": "No measurement design yet" },
+    { "cat": "Impact", "src": "Annex 1.1", "ref": "§8.1 · §10.2", "req": "Desk-based transferability to the secondary region using its Data Cube, EO and IoT streams", "resp": "Re-run the pipeline on the paired site's data; document differences in climate, soil and connectivity", "status": "planned" },
+    { "cat": "Impact", "src": "Annex 1.1", "ref": "§3.4", "req": "Reach TRL7 at a Nostradamus site with real end users by month 12", "resp": "An operational scouting round with farmers and advisors at the primary site", "status": "planned" },
+    { "cat": "Impact", "src": "Annex 2", "ref": "§4.2", "req": "Contribution to the expected impacts of the Horizon Europe Cluster 6 destination", "resp": "To be written in the proposal", "status": "planned" },
+
+    { "cat": "Responsible", "src": "Annex 2", "ref": "§3.3", "req": "Trustworthy AI: transparency, explainability, bias mitigation", "resp": "Uncertainty shown, abstention routed to people, group-aware splits and reviewer disagreement kept; model card planned", "status": "planned", "evidence": "Design shown in How it learns" },
+    { "cat": "Responsible", "src": "Annex 1", "ref": "Table 5 · §4.2.3", "req": "Gender balance of the team (scored, and the last tie-breaker)", "resp": "Name the team and its gender balance in Table 3 of the template", "status": "decision" },
+    { "cat": "Responsible", "src": "Annex 2", "ref": "§3.3", "req": "Accessible interface for users with lower digital skills or limited hardware", "resp": "Large-target, offline-first field interface; local-language labels for end users", "status": "planned" },
+    { "cat": "Responsible", "src": "Annex 1", "ref": "§7.4", "req": "Data protection", "resp": "Farm locations stay private; personal data is minimised; site and repository privacy checks", "status": "planned" },
+    { "cat": "Responsible", "src": "Annex 2", "ref": "§5.4 · FAQ", "req": "Realistic budget: equipment as depreciation only, no subcontracting, 25% indirect costs; capacity to pre-finance until sprint approval", "resp": "To be detailed in Tables 5–6", "status": "planned" }
+  ]
+}

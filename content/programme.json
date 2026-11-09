@@ -1,0 +1,90 @@
+{
+  "kicker": "Programme fit",
+  "title": "NOSTRADAMUS Open Call #1: one topic, four sprints",
+  "body": "A proposed T4 project building on Module M4 (pest and disease management). Programme facts are taken from the official documents listed below, checked on 7 November 2026. Where anything here differs from those documents, the documents win.",
+  "facts": [
+    { "label": "Topic", "value": "T4 · Smart and predictive pest and disease management", "detail": "Exactly one topic. Choosing T4 commits the project to Module M4 and its datasets (Annex 1.1, Table 3)." },
+    { "label": "Primary site", "value": "Cyprus or Germany. Not yet chosen", "detail": "The other country becomes the paired site, replicated digitally on its Data Cube, EO and IoT data with no field work there (Annex 1.1 §8.1, §10.2). A Bihor partner farm is useful preparation. It does not replace the official site." },
+    { "label": "Deadline", "value": "2 Dec 2026 · 17:00 CET (18:00 Bucharest)", "detail": "Submission deadline only. Contracting is indicated for April 2027 and is subject to change (Annex 1, Table 4)." },
+    { "label": "Funding", "value": "Lump sum up to €50,000, paid per sprint", "detail": "10% / 25% / 40% / 25%, released only after formal approval of each sprint's results. Funding is not guaranteed." },
+    { "label": "Maturity", "value": "Start ≥ TRL4 → reach TRL7", "detail": "Starting TRL4 is an eligibility criterion (Annex 1, criterion 14). Our TRL4 target date is 28 Nov 2026, and it is not yet declared." }
+  ],
+  "timeline": [
+    { "date": "28 Nov 2026", "event": "TRL4 evidence target (ours)", "key": true },
+    { "date": "2 Dec 2026", "event": "Submission deadline, 17:00 CET", "key": true },
+    { "date": "by 31 Dec 2026", "event": "Eligibility and technical check" },
+    { "date": "by 31 Jan 2027", "event": "Expert evaluation" },
+    { "date": "by 26 Feb 2027", "event": "Online interviews for top-ranked applicants" },
+    { "date": "by 31 Mar 2027", "event": "Results announced" },
+    { "date": "Apr 2027", "event": "Contracting and onboarding (indicative)" }
+  ],
+  "timelineNote": "Dates after the deadline come from Annex 1, Table 4 and may change.",
+  "assumedStart": "2027-04",
+  "assumedStartNote": "Months assume programme month 1 = April 2027, the indicative contracting month. Programme months count from the contract, not from the November 2026 evidence sprint.",
+  "sprints": [
+    {
+      "id": "S1", "name": "Training", "months": [1, 2], "payment": 10,
+      "official": ["At least 10 h of synchronous training completed", "Verified access to services and one proof-of-connection", "Approved use-case brief linked to the demo site"],
+      "outputs": ["Confirmed interfaces for M4 outputs, Data Cube and IoT Observatory", "Agreed validation protocol: sample unit, independent reviewer, metrics", "Stakeholder needs recorded with the site partner"],
+      "acceptance": ["Training attendance records", "Logged proof-of-connection call", "Signed-off protocol document"],
+      "dependencies": ["Primary site chosen: Cyprus or Germany", "M4 output formats and access", "An independent reviewer identified"]
+    },
+    {
+      "id": "S2", "name": "Design", "months": [3, 4], "payment": 25,
+      "official": ["Co-design with the site's Multi-Actor Platform (MAP) stakeholders", "Technical design signed off by mentors", "Deployment strategy: cloud, edge or mixed"],
+      "outputs": ["User workflow: stations, visits, specimens, review states", "Data and architecture contracts: observation schema, export, M4 ingestion", "Independent evaluation plan with group-aware splits"],
+      "acceptance": ["Design report (DEL 2.1) with stakeholder inputs traced to requirements", "Edge / cloud / mixed comparison design"],
+      "dependencies": ["Access to MAP stakeholders", "Data Dictionary entries for any external data"]
+    },
+    {
+      "id": "S3", "name": "Development & Validation", "months": [5, 10], "payment": 40,
+      "official": ["Working open-source prototype", "Verified ingestion from Data Cubes, IoT Observatory, EO and core modules", "Validation report: performance, reliability, usability, scalability"],
+      "outputs": ["Integration and testing at the primary site", "Measured failures, reliability and performance", "Digital transferability run on the paired site"],
+      "acceptance": ["Failure log: acquisition, GPS, inference, sync", "Independently assessed performance on held-out groups", "Measured edge vs cloud vs mixed latency, energy and connectivity"],
+      "dependencies": ["Crop stages available inside the sprint window", "Disease pressure in that season", "Site connectivity and IoT stream availability"]
+    },
+    {
+      "id": "S4", "name": "Demonstration & Assessment", "months": [11, 12], "payment": 25,
+      "official": ["On-site demo with at least 10 participants at the primary site", "At least one training session led by the third party", "Final assessment, an EIP-AGRI practice abstract and a public open-source repository"],
+      "outputs": ["Operational demonstration of the bounded workflow (TRL7)", "End-user training package", "Impact assessment against the month-2 baseline"],
+      "acceptance": ["Demo records and participant feedback", "Assessment report (DEL 4.3)", "Tagged open-source release"],
+      "dependencies": ["A KPI measurement design for pesticide use", "Event logistics with the site partner"]
+    }
+  ],
+  "criteria": {
+    "title": "Evaluation criteria",
+    "note": "Each criterion is scored 0–5 by two external evaluators. The threshold is 3 per criterion and 12 out of 20 overall. No score is promised.",
+    "items": [
+      { "name": "Alignment", "focus": "Fit with T4 and M4, and a consistent path from TRL4 to TRL7" },
+      { "name": "Excellence", "focus": "Measurable objectives, credible method, responsible AI and bias mitigation" },
+      { "name": "Impact", "focus": "Benefit to users, adoption, transferability and barriers. Impact is the first tie-break" },
+      { "name": "Implementation", "focus": "Realistic plan, budget, team and risk mitigation" }
+    ]
+  },
+  "calendar": {
+    "title": "Calendar check",
+    "note": "These are typical regional cereal calendars, not site data. Confirm them with the site partners (ECoE/MARDE in Cyprus, DLG in Germany) before planning validation.",
+    "rows": [
+      { "sprint": "S1–S2", "cyprus": "End of season: ripening to harvest", "germany": "Stem extension to grain filling" },
+      { "sprint": "S3", "cyprus": "Fallow, then sowing and emergence", "germany": "Harvest, sowing, emergence, winter" },
+      { "sprint": "S4", "cyprus": "Tillering to stem extension", "germany": "Winter to early regrowth" }
+    ],
+    "implication": "Inside the S3 window, either site mostly offers early crop stages. Leaf-symptom validation may need the S4 window, historical site data or a pre-agreed protocol."
+  },
+  "dependencies": {
+    "title": "Programme dependencies still unverified",
+    "items": [
+      "Applicant entity: SME, start-up or small mid-cap with a valid VAT number. Natural persons and unincorporated start-ups are not eligible",
+      "TRL4 evidence pack ready before submission",
+      "Primary site choice (Cyprus or Germany) and site crop, varieties and calendar",
+      "Access and formats for M4 outputs, Data Cube APIs and IoT Observatory streams",
+      "How the >40% pesticide-reduction evidence would be measured, or which KPI applies",
+      "Detailed demo event and training requirements, to be checked against the final Annex 1.1 text"
+    ]
+  },
+  "sources": [
+    { "label": "Open Call #1 page", "href": "https://nostradamus-project.eu/open-call-1/", "version": "accessed 7 Nov 2026" },
+    { "label": "Annex 1 · Guidelines for Applicants", "href": "https://nostradamus-project.eu/wp-content/uploads/2026/10/Nostradamus-OC1-Annex-1-Guidelines-for-Applicants-v_1.1-UPDATED.pdf", "version": "file name v_1.1 UPDATED; cover page reads v_1.0" },
+    { "label": "Annex 1.1 · Technical Specification", "href": "https://nostradamus-project.eu/wp-content/uploads/2026/09/Nostradamus-OC1-Annex-1.1-Technical-Specifications-v_1.0.pdf", "version": "V1.0" }
+  ]
+}

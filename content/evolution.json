@@ -1,0 +1,115 @@
+{
+  "intro": {
+    "kicker": "Product evolution",
+    "title": "The same core, carried further each step",
+    "body": "Scroll, or pick a stage. The amber outline always marks the same perception core. It moves between platforms by an assembly step. It never changes into different hardware."
+  },
+  "boundary": {
+    "title": "Beyond the funded TRL7 project",
+    "body": "From here on, the stages are research directions with indicative planning windows. None of them is a grant deliverable, a prerequisite for TRL7 or an achieved milestone."
+  },
+  "stages": [
+    {
+      "id": "desk",
+      "label": "Lab bench",
+      "scope": "funded",
+      "reality": "actual",
+      "badge": "Actual hardware",
+      "when": "Today",
+      "trl": "TRL4 target: 28 Nov 2026 (not yet declared)",
+      "title": "The perception core on the bench",
+      "body": "A Jetson Orin Nano Super in a compact enclosure, with a CSI camera module and two antennas. A USB RGB camera is used for validation work, and a u-blox USB receiver provides GPS. TensorRT inference runs on the device.",
+      "points": [
+        "The 3D model approximates the photographed hardware; a 3D scan of the real unit can replace it",
+        "Two lenses do not mean validated stereo depth"
+      ],
+      "still": "assets/img/core-desk-portrait.jpg",
+      "stillAlt": "Photograph of the actual prototype on a workbench."
+    },
+    {
+      "id": "field-unit",
+      "label": "Field unit",
+      "scope": "funded",
+      "reality": "concept",
+      "badge": "Concept visualisation",
+      "when": "Programme · TRL5–6",
+      "trl": "TRL5: validated in a relevant environment · TRL6: demonstrated with end users",
+      "title": "The same core, protected for the field",
+      "body": "The core goes into a weather-protected case with a ring light around the camera window, so exposure stays consistent in sun and cloud. You can carry it by the handle or clip it to a simple push cart that rolls in the existing tramlines. Validation covers acquisition quality (exposure, focus, motion blur, GPS fix) and performance assessed by independent reviewers.",
+      "points": [
+        "Same Jetson, same camera path, same software",
+        "The case and ring light are design concepts, not built parts"
+      ],
+      "still": "assets/stills/stage-1.jpg",
+      "stillAlt": "Concept render: the protected field unit on a two-wheeled push cart in a wheat tramline, camera angled down at the canopy."
+    },
+    {
+      "id": "workflow",
+      "label": "Scouting round",
+      "scope": "funded",
+      "reality": "concept",
+      "badge": "Concept visualisation",
+      "when": "Programme · TRL7 target",
+      "trl": "TRL7: bounded application in an operational programme-site workflow",
+      "title": "A scouting round with a farmer or advisor",
+      "body": "The operator pushes the cart along a tramline and stops at repeatable stations. At each one they photograph specimens and see the on-device result with its uncertainty. Every observation joins a human review queue and leaves as a traceable export.",
+      "points": [
+        "A person pushes and supervises the cart",
+        "The app records observations; it never prescribes treatments"
+      ],
+      "still": "assets/stills/stage-2.jpg",
+      "stillAlt": "Concept render: a scale figure pushes the scouting cart along a tramline next to a numbered station marker."
+    },
+    {
+      "id": "rover",
+      "label": "Payload on a carrier",
+      "scope": "beyond",
+      "reality": "concept",
+      "badge": "Concept visualisation",
+      "when": "2027–2028 · indicative",
+      "trl": "Outside the funded project",
+      "title": "The core as a payload, on someone else’s carrier",
+      "body": "QUERRA does not plan to build its own robot. The field unit becomes a payload pod that clamps onto an existing narrow-track carrier running in the tramlines. The top camera looks down at the canopy. A low side camera looks into the lower leaves, where Septoria usually starts and where drones and satellites cannot see. A person supervises on site. Navigation and safety belong to the carrier and would need assessment before any field use.",
+      "points": [
+        "The carrier shown is generic, not a chosen product",
+        "The side camera is a concept addition; it is not built or validated"
+      ],
+      "still": "assets/stills/stage-3.jpg",
+      "stillAlt": "Concept render: a narrow-track carrier with four steerable wheel modules in the tramlines, a truss gantry over the crop, and the QUERRA field unit hanging from the front as a payload pod."
+    },
+    {
+      "id": "aerial",
+      "label": "Air flags, ground confirms",
+      "scope": "beyond",
+      "reality": "concept",
+      "badge": "Concept visualisation",
+      "when": "2028–2029 · indicative",
+      "trl": "Outside the funded project",
+      "title": "The drone flags a patch; the ground scout checks it",
+      "body": "An aerial survey flags a patch worth a closer look. The carrier drives to it along the tramline, the core photographs it at close range, and the record goes to human review. Air and satellite views cover the field; the ground check provides the close-range, reviewable evidence. QUERRA does not fly drones: the survey would come from a partner or the farm’s own service, with the required approvals.",
+      "points": [
+        "The flagged patch is illustrative; it is not a disease map or a model output",
+        "The drones carry their own cameras; the core stays on the ground"
+      ],
+      "still": "assets/stills/stage-4.jpg",
+      "stillAlt": "Concept render: drones on dashed survey lines above a wheat field; an amber-outlined patch with a label reading “Photographed on the ground”, and the carrier stopped in the tramline beside it."
+    },
+    {
+      "id": "manipulator",
+      "label": "Leaf sample for the lab",
+      "scope": "beyond",
+      "reality": "concept",
+      "badge": "Concept visualisation",
+      "when": "2029–2031 · conditional",
+      "trl": "Conditional 3–5-year research direction",
+      "title": "A physical sample to confirm the image",
+      "body": "A six-axis arm under the carrier’s rail takes a leaf disc from the crop next to the tramline and drops it into a barcoded tube linked to the image record. A laboratory test (for example qPCR) can then confirm what the photograph suggested, closing the evidence loop. Leaf-sampling arms are in field trials in vineyards and orchards; none is proven in cereals. We would pursue this only if task value, reliability, safety and economics justify it. There is no committed date.",
+      "points": [
+        "No humanoid: there is no open-field evidence to support one",
+        "Not a grant deliverable and not a guaranteed date"
+      ],
+      "still": "assets/stills/stage-5.jpg",
+      "stillAlt": "Concept render: a white six-axis arm hanging under the carrier’s rail places a leaf sample into a rack of barcoded tubes beside the tramline."
+    }
+  ]
+}

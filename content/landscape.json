@@ -1,0 +1,78 @@
+{
+  "kicker": "Landscape",
+  "title": "Where QUERRA fits",
+  "lede": "Most crop-protection technology sells a diagnosis, a map or an action. QUERRA supplies the step in between: checked field observations that an advisor can trust and that a disease forecast can be tested against.",
+  "chain": [
+    { "id": "forecast", "label": "Forecast", "who": "Disease-risk models and decision support, including M4" },
+    { "id": "flag", "label": "Flag", "who": "Satellite and drone imagery, camera traps, weather stations" },
+    { "id": "confirm", "label": "Confirm on the ground", "who": "QUERRA: a close-range photograph, an on-device result with its uncertainty, human review and a traceable record", "querra": true },
+    { "id": "decide", "label": "Decide", "who": "Farmer and advisor" },
+    { "id": "act", "label": "Act", "who": "Sprayers, weeding robots, field operations" }
+  ],
+  "chainNote": "The chain follows one field problem from forecast to action. Reviewed observations also flow back to the forecast; that return path is the M4 loop described above.",
+  "tableCaption": "Categories, not companies: individual products differ. Checked against public information in November 2026.",
+  "categories": [
+    {
+      "name": "Phone diagnosis apps",
+      "strong": "Free or low-cost, large image libraries, many crops, an answer in seconds.",
+      "stops": "One photo gives one answer. Recognition usually runs on a remote server. There is no independent review step or traceable record a forecast could be tested against.",
+      "relation": "QUERRA works offline and keeps a review trail. It does not try to cover as many crops."
+    },
+    {
+      "name": "Satellite and drone imagery",
+      "strong": "Whole-field coverage, repeatable, good at showing which patches differ.",
+      "stops": "Sees the top of the canopy. Early symptoms on lower leaves, and the cause of a patch, still need a ground check. Processing usually happens online.",
+      "relation": "Complementary: imagery shows where to look, QUERRA checks it on the ground."
+    },
+    {
+      "name": "Camera traps and in-field sensors",
+      "strong": "Automatic, frequent, proven at scale for insect pests and microclimate.",
+      "stops": "Fixed points and specific pest groups. Most need a mobile signal.",
+      "relation": "Useful context next to M4. QUERRA does not replace them."
+    },
+    {
+      "name": "Weeding and spraying robots",
+      "strong": "Large investment, commercial fleets, many hours in real fields.",
+      "stops": "Built to act on weeds or spray. Scouting data is a by-product.",
+      "relation": "QUERRA does not build carriers or sprayers. Its core is designed to ride on carriers as a payload."
+    },
+    {
+      "name": "Disease-risk models and decision support",
+      "strong": "Regional forecasts from weather, crop stage and history. M4 is one of them.",
+      "stops": "They need observed ground truth to validate and recalibrate them, field by field.",
+      "relation": "This is the gap QUERRA is built for: reviewed observations that feed the forecast back."
+    }
+  ],
+  "apartTitle": "Where the approach differs",
+  "apart": [
+    "Works offline: inference runs on the device, so a weak connection does not stop a scouting round.",
+    "Every result carries its uncertainty and goes through human review before it counts.",
+    "Exports are fingerprinted, so anyone holding the file can check it has not changed.",
+    "Evaluation keeps related images out of the test set, and the protocol is published before the results.",
+    "Built to feed a forecast such as M4, not to compete with it."
+  ],
+  "behindTitle": "Where we are behind today",
+  "behind": [
+    "No field-validated result yet. The TRL4 evidence pack is due on 28 November 2026.",
+    "One ordinary RGB camera: no multispectral or depth sensing.",
+    "A much smaller image library than established apps.",
+    "No navigation of its own.",
+    "A small team.",
+    "A headline accuracy figure is not a differentiator: published wheat-disease classifiers already report over 97% on their own test sets."
+  ],
+  "carrier": {
+    "title": "Why we do not build the robot",
+    "body": "Since 2024 a UK developer of a cereal-scouting robot has gone into liquidation, and a Danish maker of an autonomous field robot was declared bankrupt and sold in parts. Robot bases are being consolidated and are becoming commodities. QUERRA’s core is therefore designed as a payload: the evidence chain stays the same whether a person, a cart or a carrier moves it.",
+    "sources": [
+      { "label": "FarmingUK, 2024: liquidation of a UK crop-robot developer", "href": "https://farminguk.com/news/-great-sadness-small-robot-company-put-into-liquidation_64099.html" },
+      { "label": "Future Farming, 2026: field-robot maker sold in parts after bankruptcy", "href": "https://www.futurefarming.com/tech-in-focus/field-robots/bankrupt-robot-manufacturer-agrointelli-sold-in-parts/" },
+      { "label": "Robotics & Automation News, 2025: acquisition of a small-farm robot platform", "href": "https://roboticsandautomationnews.com/2025/10/23/bonsai-robotics-unveils-new-robot-for-agricultural-jobs/95784/" }
+    ]
+  },
+  "sources": [
+    { "label": "Wheat disease classification with field and glasshouse images: 97.05% reported accuracy (Plant Pathology, vol. 72)", "href": "https://www.jic.ac.uk/research-impact/publications/classification-of-wheat-diseases-using-deep-learning-networks-with-field-and-glasshouse-images/" },
+    { "label": "Mobile manipulator for leaf and insect sampling in a vineyard (Actuators, 2026)", "href": "https://www.mdpi.com/2076-0825/15/2/91" },
+    { "label": "Robotic arm for proximal leaf sensing in orchards (RoMu4o, 2025)", "href": "https://aitopics.org/doc/arxivorg:2BDB040B" },
+    { "label": "Agricultural humanoids at pilot stage, greenhouse target 2028 (HortiDaily, 2026)", "href": "https://www.hortidaily.com/article/9863198/south-korea-targets-ai-humanoid-robot-for-greenhouse-harvesting/" }
+  ]
+}

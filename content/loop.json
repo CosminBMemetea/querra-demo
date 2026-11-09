@@ -1,0 +1,90 @@
+{
+  "kicker": "The M4 loop",
+  "title": "Predict, verify, then decide",
+  "lede": "Module M4 estimates where disease risk is rising. QUERRA sends someone to check, records what they find, and a person confirms it. Only confirmed hotspots reach a spray decision. The observations then flow back to help validate M4.",
+  "modelNote": "This shows the planned behaviour, not measurements. Sprint 3 will measure it, as Annex 1.1 §3.7 requires.",
+  "nodes": [
+    {
+      "id": "m4", "short": "M4 forecast", "title": "M4 risk and crop-stage outputs",
+      "status": "planned", "statusLabel": "Provided by Nostradamus · access confirmed in Sprint 1",
+      "text": "M4 combines Sentinel-2, ERA5, SoilGrids, IoT and in-situ observations into an estimated cereal growth stage and daily, georeferenced disease-risk layers at 10 m (Annex 1.1 §2.8). QUERRA consumes these outputs. It does not re-implement or redistribute M4's proprietary models.",
+      "interface": "Nostradamus Data Cube (dc.load in Cube-in-a-Box) · STAC catalogue",
+      "runs": { "edge": "Cached copy on the field unit, synced before leaving", "mixed": "Cloud (Tier B); compact copy cached on the field unit", "cloud": "Cloud (Tier B)" }
+    },
+    {
+      "id": "plan", "short": "Plan the round", "title": "Plan a targeted scouting round",
+      "status": "planned", "statusLabel": "Planned · Sprint 2 design",
+      "text": "Stations near rising risk come first. Fixed stations are kept for comparability, and some low-risk control stations are always visited, so the check does not just confirm the forecast.",
+      "interface": "Tier C web view for the advisor",
+      "runs": { "edge": "On the field unit", "mixed": "Advisor view (Tier C), pushed to the field unit", "cloud": "Advisor view (Tier C)" }
+    },
+    {
+      "id": "capture", "short": "Capture & infer", "title": "Capture and infer at the station",
+      "status": "partial", "statusLabel": "Partly in place: capture and GPU inference run on the prototype",
+      "text": "Photos are taken with station, visit and specimen IDs, camera settings, and GPS and time where available. Inference runs on the device and shows its uncertainty. Low-confidence or out-of-scope results are routed to review, never shown as a diagnosis.",
+      "interface": "Field unit (Tier A) · records published to the IoT Observatory over MQTT",
+      "runs": { "edge": "Capture and inference on the field unit (Tier A)", "mixed": "Capture and inference on the field unit (Tier A)", "cloud": "Capture on the device; inference only after upload (Tier B)" }
+    },
+    {
+      "id": "review", "short": "Expert review", "title": "Independent expert review",
+      "status": "planned", "statusLabel": "Planned · reviewer to be identified",
+      "text": "A reviewer who did not take the photo confirms, rejects or marks the result unsure. Disagreements with the model are kept. This is the step that turns a forecast into a verified hotspot.",
+      "interface": "Review queue (Tier C) backed by the cloud store (Tier B)",
+      "runs": { "edge": "Later, after a manual export", "mixed": "Review queue (Tier C) in the cloud", "cloud": "Review queue (Tier C) in the cloud" }
+    },
+    {
+      "id": "decide", "short": "Decide", "title": "The farmer or advisor decides",
+      "status": "planned", "statusLabel": "People decide · QUERRA never prescribes",
+      "text": "Treatment decisions consider only confirmed hotspots, alongside the M4 risk and the advisor's judgement. The product, dose, date and treated area are recorded, which is what a pesticide-use comparison needs.",
+      "interface": "Intervention record linked to stations and visits",
+      "runs": { "edge": "Recorded on the field unit", "mixed": "Recorded on the field unit or in the advisor view", "cloud": "Advisor view (Tier C)" }
+    },
+    {
+      "id": "feedback", "short": "Feed back", "title": "Feed back to M4 and the Data Cube",
+      "status": "planned", "statusLabel": "Planned · Sprint 3",
+      "text": "Observed growth stages and confirmed or rejected hotspots are returned as documented, FAIR in-situ data, using AGROVOC terms and EPPO codes, so M4's stage and risk estimates can be checked against the field.",
+      "interface": "GeoJSON / CSV export · Data Dictionary entry · REST API",
+      "runs": { "edge": "Manual export only", "mixed": "Automatic sync once reviewed (Tier B)", "cloud": "Automatic (Tier B)" }
+    }
+  ],
+  "architectures": [
+    { "id": "edge", "label": "Edge only", "tier": "Tier A" },
+    { "id": "mixed", "label": "Mixed", "tier": "Tier A + B", "proposed": true },
+    { "id": "cloud", "label": "Cloud only", "tier": "Tier B" }
+  ],
+  "connectivity": [
+    { "id": "online", "label": "Online" },
+    { "id": "intermittent", "label": "Intermittent" },
+    { "id": "offline", "label": "Offline" }
+  ],
+  "behaviour": {
+    "edge": {
+      "online": ["The field result appears on the device straight away", "The M4 forecast is only as fresh as the last manual sync", "Review and feedback wait for a manual export, so the loop closes slowly"],
+      "intermittent": ["The field result is unaffected", "The M4 forecast is only as fresh as the last manual sync", "Nothing is sent automatically"],
+      "offline": ["The field result is unaffected", "The M4 forecast is only as fresh as the last manual sync", "Everything stays on the device until exported"]
+    },
+    "mixed": {
+      "online": ["The field result appears on the device straight away", "Compact records, not raw image streams, sync over MQTT", "Review and the M4 check happen in the cloud within hours"],
+      "intermittent": ["The field result is unaffected", "Records are buffered on the device and sync when the link returns", "Review starts later; nothing should be lost (to be tested)"],
+      "offline": ["The field result is unaffected; the M4 forecast's age is shown", "All records are buffered on the device", "Everything syncs on reconnection; nothing should be lost (to be tested)"]
+    },
+    "cloud": {
+      "online": ["The result arrives only after each photo uploads", "Full images are sent, the heaviest radio traffic", "Review and the M4 check happen in the cloud"],
+      "intermittent": ["Results are delayed until each upload succeeds", "Photos queue on the device", "The operator may leave the station before seeing a result"],
+      "offline": ["No result in the field", "Photos queue on the device", "The operator cannot act on the spot"]
+    }
+  },
+  "brokenLinks": {
+    "edge": { "online": ["capture-review", "feedback-m4", "m4-plan"], "intermittent": ["capture-review", "feedback-m4", "m4-plan"], "offline": ["capture-review", "feedback-m4", "m4-plan"] },
+    "mixed": { "online": [], "intermittent": ["capture-review"], "offline": ["capture-review", "feedback-m4", "m4-plan"] },
+    "cloud": { "online": [], "intermittent": ["capture-review"], "offline": ["capture-review", "feedback-m4", "m4-plan"] }
+  },
+  "measures": {
+    "title": "Measured in Sprint 3, for each architecture",
+    "items": ["Time from photo to result in the field", "Energy per observation on the field unit", "Bytes sent per observation", "Observations lost after a connection drop", "Time from capture to completed review"]
+  },
+  "kpi": {
+    "title": "Why this matters for the pesticide KPI",
+    "text": "Because the forecast, the field check, the decision and the treated area are all recorded, decisions guided by the loop can be compared with standard practice on paired plots. That design must be agreed with the site partner in Sprint 2. No reduction is claimed today."
+  }
+}

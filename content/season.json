@@ -1,0 +1,115 @@
+{
+  "kicker": "Growing-season explorer",
+  "title": "One field, sowing to harvest, carried into the next season",
+  "assumption": "These are illustrative stages, not observed dates or measured growth. Winter wheat is a planning assumption for Bihor/Oradea. The partner farm's crop, variety and sowing date are not yet confirmed.",
+  "columns": {
+    "farmer": "Farmer records",
+    "device": "Device observes",
+    "expert": "Needs an expert",
+    "evidence": "Evidence carried forward"
+  },
+  "recordFormat": {
+    "title": "Every observation carries",
+    "note": "Example ID format. These are not real records.",
+    "fields": [
+      { "key": "station", "label": "Station", "example": "STN-03" },
+      { "key": "visit", "label": "Visit", "example": "V-03-07" },
+      { "key": "specimen", "label": "Specimen", "example": "SP-03-07-04" },
+      { "key": "camera", "label": "Camera settings", "example": "camera ID · resolution · exposure · white balance · lens height · grey-card frame" },
+      { "key": "position", "label": "GPS / time", "example": "fix quality and timestamp; ‘no fix’ is recorded, never guessed" },
+      { "key": "context", "label": "Weather / EO provenance", "example": "source · product · date range · retrieval date" }
+    ]
+  },
+  "replay": {
+    "title": "Weather and satellite context",
+    "range": "September 2024 to August 2025",
+    "weather": "NASA POWER: 365 daily records",
+    "eo": "Sentinel-2: 11 monthly observations",
+    "months": ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+    "missingMonths": ["Jan"],
+    "caveat": "This is a regional reference area near Oradea and its crop is unknown. The data is not from the partner farm's parcel. It does not establish disease risk or measured crop stages."
+  },
+  "stages": [
+    {
+      "id": "records", "label": "Seed & field records", "code": "Before sowing", "months": "Aug–Sep",
+      "canopy": { "kind": "bare", "height": 0, "tillers": 0, "ripeness": 0, "cover": 0 },
+      "farmer": ["Crop, variety and seed lot", "Previous crop, tillage and soil notes", "Planned sowing date and seed rate", "Station plan: station IDs fixed before the season"],
+      "device": ["Photos of the seed-lot label and station markers", "Calibration frames with a grey card", "GPS fix quality at each station, where available"],
+      "expert": ["Station layout that is not biased by headlands or tramlines", "Which diseases matter for this variety and region"],
+      "evidence": ["Station register (STN-xx)", "Camera profile ID", "Seed-lot reference"],
+      "missing": ["The partner farm's crop, variety and sowing date are not confirmed", "Parcel boundaries are private and are never published"]
+    },
+    {
+      "id": "sowing", "label": "Sowing", "code": "GS00", "months": "Oct",
+      "canopy": { "kind": "seed", "height": 0, "tillers": 0, "ripeness": 0, "cover": 0 },
+      "farmer": ["Sowing date, drill settings and seed rate", "Seed treatment", "Soil conditions at drilling"],
+      "device": ["Photos of the seedbed surface and residue at each station", "The device cannot see seeds in the soil"],
+      "expert": ["Seedbed quality judgement"],
+      "evidence": ["Sowing record linked to the station register", "Weather provenance starts: source and retrieval date"],
+      "missing": ["Actual sowing date", "No on-farm weather station confirmed"]
+    },
+    {
+      "id": "emergence", "label": "Emergence", "code": "GS10–13", "months": "Oct–Nov",
+      "canopy": { "kind": "seedling", "height": 8, "tillers": 1, "ripeness": 0, "cover": 0.08 },
+      "farmer": ["Estimated emergence date", "Establishment problems such as slugs, birds or waterlogging"],
+      "device": ["Top-down photos at stations to support plant counts", "Inference runs only for classes and stages the model was evaluated on. Other images are stored for review"],
+      "expert": ["Confirm plant counts and establishment"],
+      "evidence": ["Visit IDs, camera settings per photo, and GPS and time where available"],
+      "missing": ["Model coverage for seedling stages has not been established"]
+    },
+    {
+      "id": "tillering", "label": "Tillering", "code": "GS20–29", "months": "Nov–Mar",
+      "canopy": { "kind": "tillering", "height": 20, "tillers": 4, "ripeness": 0, "cover": 0.35 },
+      "farmer": ["Nitrogen and herbicide applications", "Frost and winter damage notes"],
+      "device": ["Leaf photos at fixed stations", "Inference shown with its uncertainty", "Blurred or badly exposed frames flagged for a retake"],
+      "expert": ["Confirm candidate leaf symptoms", "Review every uncertain result"],
+      "evidence": ["Reviewed observations: label, reviewer, confidence, disagreement with the model"],
+      "missing": ["The public Sentinel-2 replay has no January observation"]
+    },
+    {
+      "id": "stem", "label": "Stem extension", "code": "GS30–39", "months": "Apr",
+      "canopy": { "kind": "stem", "height": 55, "tillers": 4, "ripeness": 0, "cover": 0.7 },
+      "farmer": ["Fungicide and growth-regulator decisions, made by the farmer or advisor", "Product, dose, date and operator for each intervention"],
+      "device": ["The same leaf layer photographed at every visit", "Inference with uncertainty, sent to review"],
+      "expert": ["Decide whether any intervention is needed. QUERRA does not prescribe"],
+      "evidence": ["Interventions linked to visits and stations"],
+      "missing": ["Disease pressure at the partner farm is unknown"]
+    },
+    {
+      "id": "heading", "label": "Heading & flowering", "code": "GS51–69", "months": "May",
+      "canopy": { "kind": "heading", "height": 80, "tillers": 4, "ripeness": 0.05, "cover": 0.85 },
+      "farmer": ["Heading and flowering dates", "Late fungicide decisions"],
+      "device": ["Flag-leaf and ear photos", "Classes outside the evaluated set are stored for review, not labelled"],
+      "expert": ["Ear diseases and head blight risk need expert and model context, not photos alone"],
+      "evidence": ["EO provenance per visit: product, scene date and cloud share"],
+      "missing": ["M4 risk-map integration is planned, not built"]
+    },
+    {
+      "id": "filling", "label": "Grain filling", "code": "GS71–89", "months": "Jun",
+      "canopy": { "kind": "filling", "height": 85, "tillers": 4, "ripeness": 0.55, "cover": 0.85 },
+      "farmer": ["Late disease, lodging and harvest planning"],
+      "device": ["Canopy photos at stations", "Senescence can look like disease, so these images go to review"],
+      "expert": ["Separate natural senescence from disease"],
+      "evidence": ["Final reviewed observation set per station"],
+      "missing": ["No canopy observations exist yet for the partner farm"]
+    },
+    {
+      "id": "harvest", "label": "Harvest", "code": "GS92–99", "months": "Jul",
+      "canopy": { "kind": "ripe", "height": 82, "tillers": 4, "ripeness": 1, "cover": 0.85 },
+      "farmer": ["Measured yield from a weighbridge or yield monitor", "Grain quality and harvest date"],
+      "device": ["Optional photos of stubble and grain samples", "The device does not measure yield"],
+      "expert": ["Read yield next to observations without claiming cause"],
+      "evidence": ["Measured harvest outcome linked to stations, where the resolution allows"],
+      "missing": ["Field-level yield may not resolve to individual stations"]
+    },
+    {
+      "id": "review", "label": "Next-season review", "code": "After harvest", "months": "Aug–Sep",
+      "canopy": { "kind": "stubble", "height": 12, "tillers": 4, "ripeness": 1, "cover": 0.3 },
+      "farmer": ["What worked, what was missed, intervention outcomes"],
+      "device": ["No field capture; a versioned export is produced"],
+      "expert": ["Independent review of the season dataset", "Model evaluation on untouched groups"],
+      "evidence": ["Versioned export: observations, reviews, interventions, outcomes and provenance", "Station register carried into next season"],
+      "missing": ["Several seasons are needed before any agronomic model claim"]
+    }
+  ]
+}

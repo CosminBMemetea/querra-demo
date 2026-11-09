@@ -1,0 +1,277 @@
+{
+  "kicker": "Real evidence",
+  "title": "Every result, with its source and its limits",
+  "body": "Each card gives the source, scope, sample count, date, configuration and limitations. Where an export exists, its SHA-256 fingerprint is shown, so anyone holding the file can check it is the same one. Empty fields are left visible on purpose. A Measured result without a linked export is flagged until the export is attached.",
+  "states": {
+    "measured": {
+      "label": "Measured",
+      "help": "Produced by running our system on stated data, and backed by a dated export."
+    },
+    "replay": {
+      "label": "Historical public replay",
+      "help": "Public historical data replayed for context. Not an observation from the partner farm."
+    },
+    "planned": {
+      "label": "Planned",
+      "help": "The work is defined. No result exists yet."
+    },
+    "concept": {
+      "label": "Concept",
+      "help": "An illustration of a possible future. Not built and not measured."
+    }
+  },
+  "items": [
+    {
+      "id": "gpu-recheck",
+      "state": "measured",
+      "title": "GPU recheck on historical-source images",
+      "result": "56 / 62 raw classifications correct",
+      "scope": "Historical source images re-run through the device GPU inference path",
+      "samples": "62 images",
+      "date": null,
+      "dateMissing": "Add the run date from the export",
+      "configuration": "GPU inference. Model version, preprocessing and thresholds are not yet linked",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "Dated export not yet attached"
+      },
+      "limitations": [
+        "This is not independent field accuracy",
+        "Exact train/test duplicates were removed, but other dependencies between images are unresolved",
+        "Raw classification only: no uncertainty threshold and no human review applied"
+      ],
+      "integrity": {
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "missing": "No export file attached yet"
+      }
+    },
+    {
+      "id": "tensorrt",
+      "state": "measured",
+      "title": "TensorRT inference on the Jetson",
+      "result": "Inference runs on the Jetson Orin Nano Super GPU",
+      "scope": "A functional check. Speed and accuracy are not part of this claim",
+      "samples": "Not applicable",
+      "date": null,
+      "dateMissing": "Add the date of the run",
+      "configuration": "Jetson Orin Nano Super, TensorRT. Engine and model versions are not yet linked",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "Fresh evidence export not yet attached"
+      },
+      "limitations": [
+        "Shows that inference runs, not how well it performs"
+      ],
+      "integrity": {
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "missing": "No export file attached yet"
+      }
+    },
+    {
+      "id": "weather-replay",
+      "state": "replay",
+      "title": "Daily weather replay",
+      "result": "365 daily records",
+      "scope": "Regional reference area near Oradea. Coordinates are withheld and the area's crop is unknown",
+      "samples": "365 days",
+      "date": "1 Sep 2024 – 31 Aug 2025",
+      "configuration": "NASA POWER daily data. The parameter list is not yet linked",
+      "source": {
+        "label": "NASA POWER",
+        "href": "https://power.larc.nasa.gov/",
+        "missing": null
+      },
+      "limitations": [
+        "Modelled, coarse-grid data, not an on-farm station",
+        "Not the partner farm's parcel",
+        "Does not establish disease risk"
+      ]
+    },
+    {
+      "id": "eo-replay",
+      "state": "replay",
+      "title": "Sentinel-2 monthly replay",
+      "result": "11 monthly observations; January missing",
+      "scope": "Same regional reference area near Oradea. The crop identity is unknown",
+      "samples": "11 observations",
+      "date": "Sep 2024 – Aug 2025",
+      "configuration": "Copernicus Sentinel-2. Cloud screening and index method are not yet documented here",
+      "source": {
+        "label": "Copernicus Sentinel-2",
+        "href": "https://dataspace.copernicus.eu/",
+        "missing": null
+      },
+      "limitations": [
+        "Monthly cadence misses short events",
+        "A vegetation index alone does not establish crop stage or disease risk",
+        "Not the partner farm's parcel"
+      ]
+    },
+    {
+      "id": "uk-ie-benchmark",
+      "state": "planned",
+      "title": "UK/Ireland public image benchmark",
+      "result": "No result yet",
+      "scope": "Public images from the UK and Ireland, prepared separately from training data",
+      "samples": "999 images (in preparation)",
+      "date": null,
+      "dateMissing": "Shown only once a dated, exported evaluation exists",
+      "configuration": "To be fixed before the evaluation is run",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "No evaluation export yet"
+      },
+      "limitations": [
+        "Pass or fail is not implied",
+        "A public benchmark is not field validation"
+      ],
+      "integrity": {
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "missing": "No export file attached yet"
+      }
+    },
+    {
+      "id": "evaluation-protocol",
+      "state": "planned",
+      "title": "Pre-registered evaluation protocol",
+      "result": "To be published before any benchmark result",
+      "scope": "Fixes the test data, the group-aware split, the metrics, the uncertainty thresholds and the acceptance criteria in advance, so results cannot be tuned after the fact",
+      "samples": "Not applicable",
+      "date": null,
+      "dateMissing": "Publish with a timestamp (for example a Zenodo DOI) before running the UK/Ireland benchmark",
+      "configuration": "Protocol document plus its SHA-256 fingerprint",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "Not yet written; publication needs the owner's approval"
+      },
+      "integrity": {
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "missing": "Fingerprint added on publication"
+      },
+      "limitations": [
+        "Pre-registration shows the evaluation was fixed in advance; it does not guarantee a good result"
+      ]
+    },
+    {
+      "id": "device-health",
+      "state": "planned",
+      "title": "Device health and storage",
+      "result": "Not shown",
+      "scope": "Storage, temperature and service status of the prototype",
+      "samples": "Not applicable",
+      "date": null,
+      "dateMissing": "Requires a fresh evidence export",
+      "configuration": "Not applicable",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "Fresh evidence export required"
+      },
+      "limitations": [
+        "A mounted SSD does not prove the storage is healthy",
+        "Status can change between exports"
+      ],
+      "integrity": {
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "missing": "No export file attached yet"
+      }
+    },
+    {
+      "id": "trl4",
+      "state": "planned",
+      "title": "TRL4 lab validation",
+      "result": "Target 28 Nov 2026, not yet declared",
+      "scope": "Bounded scouting application: existing Jetson, an identified camera, GPS handling, GPU inference, reviewed observations and reproducible evidence",
+      "samples": "To be defined in the validation protocol",
+      "date": null,
+      "dateMissing": "Target date: 28 Nov 2026",
+      "configuration": "To be frozen in the TRL4 evidence pack",
+      "source": {
+        "label": null,
+        "href": null,
+        "missing": "Evidence pack not yet produced"
+      },
+      "limitations": [
+        "Required as the starting TRL for eligibility (Annex 1, criterion 14)"
+      ]
+    },
+    {
+      "id": "programme-integration",
+      "state": "planned",
+      "title": "M4, IoT Observatory and Data Cube integration",
+      "result": "No integration yet",
+      "scope": "Consume M4 Zadoks-stage and disease-risk outputs. Compare edge, cloud and mixed execution",
+      "samples": "Not applicable",
+      "date": null,
+      "dateMissing": "Programme Sprint 3",
+      "configuration": "Interfaces are confirmed during Sprint 1 onboarding",
+      "source": {
+        "label": "Annex 1.1, sections 2.8 and 3.1–3.2",
+        "href": "https://nostradamus-project.eu/wp-content/uploads/2026/09/Nostradamus-OC1-Annex-1.1-Technical-Specifications-v_1.0.pdf",
+        "missing": null
+      },
+      "limitations": [
+        "A leaf classifier or an NDVI view alone does not meet the platform-integration requirements"
+      ]
+    },
+    {
+      "id": "kpi-pesticide",
+      "state": "planned",
+      "title": "Pesticide-use impact",
+      "result": "No evidence",
+      "scope": "Annex 1.1 §10.1 asks for credible field-tested evidence for at least one programme target. For T4 the relevant one is a >40% reduction in pesticide use",
+      "samples": "To be designed with the site partner",
+      "date": null,
+      "dateMissing": "Measurement design not yet agreed",
+      "configuration": "Not applicable",
+      "source": {
+        "label": "Annex 1.1, §10.1",
+        "href": "https://nostradamus-project.eu/wp-content/uploads/2026/09/Nostradamus-OC1-Annex-1.1-Technical-Specifications-v_1.0.pdf",
+        "missing": null
+      },
+      "limitations": [
+        "No reduction is claimed",
+        "Attribution needs a comparison design agreed before the season"
+      ]
+    },
+    {
+      "id": "platform-concepts",
+      "state": "concept",
+      "title": "Field unit, rover, aerial scouts, manipulator",
+      "result": "Visualisations only",
+      "scope": "3D concepts in the evolution section",
+      "samples": "Not applicable",
+      "date": "Drawn November 2026",
+      "configuration": "Procedural 3D models in the browser",
+      "source": {
+        "label": "This page",
+        "href": "#evolution",
+        "missing": null
+      },
+      "limitations": [
+        "Not built, not measured, not device output"
+      ]
+    }
+  ],
+  "excluded": {
+    "title": "Figures we deliberately do not show",
+    "items": [
+      "An older training report gives a headline accuracy measured during training. It is not validated field accuracy, so it is not presented as a result.",
+      "No live telemetry, invented scores, disease maps or customer logos appear anywhere on this page."
+    ]
+  }
+}

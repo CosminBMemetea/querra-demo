@@ -1,0 +1,192 @@
+{
+  "brand": "QUERRA",
+  "title": "One perception core. A whole growing season.",
+  "lead": "QUERRA is building an operator-guided scouting and evidence application for cereal fields. It takes RGB photographs, runs GPU inference on the device and records GPS and time where available. Every result shows its uncertainty, goes through human review and leaves as a traceable export.",
+  "heroNote": "Below: the actual prototype, then the field units we plan to validate. After the funded TRL7 boundary, the platforms are research concepts.",
+  "nav": [
+    {
+      "href": "#evolution",
+      "label": "Evolution"
+    },
+    {
+      "href": "#loop",
+      "label": "M4 loop"
+    },
+    {
+      "href": "#device",
+      "label": "Device"
+    },
+    {
+      "href": "#trl",
+      "label": "TRL scope"
+    },
+    {
+      "href": "#vision",
+      "label": "Vision"
+    },
+    {
+      "href": "#season",
+      "label": "Season"
+    },
+    {
+      "href": "#learning",
+      "label": "How it learns"
+    },
+    {
+      "href": "#evidence",
+      "label": "Evidence"
+    },
+    {
+      "href": "#landscape",
+      "label": "Landscape"
+    },
+    {
+      "href": "#programme",
+      "label": "Programme"
+    },
+    {
+      "href": "#fit",
+      "label": "Call fit"
+    }
+  ],
+  "doesNot": [
+    "Diagnose soil chemistry",
+    "Detect seeds in the soil",
+    "Control a robot",
+    "Fly drones",
+    "Prescribe pesticides",
+    "Learn automatically online"
+  ],
+  "device": {
+    "photo": "assets/img/core-desk-portrait.jpg",
+    "photoWidth": 1050,
+    "photoHeight": 1400,
+    "alt": "Photograph of the QUERRA prototype on a workbench: a black aluminium enclosure with a vent grille, a green-ringed power button, a camera bracket holding a two-lens camera board with an orange ribbon cable, and two black antennas.",
+    "caption": "Photograph of the actual prototype, November 2026. All image metadata, including location, was removed before publication.",
+    "hotspots": [
+      {
+        "x": 26,
+        "y": 74,
+        "label": "Compute enclosure",
+        "detail": "NVIDIA Jetson Orin Nano Super in a compact aluminium case. TensorRT inference runs on its GPU."
+      },
+      {
+        "x": 62,
+        "y": 63,
+        "label": "CSI camera module",
+        "detail": "Two lenses are visible. Stereo depth is not implemented or validated. This camera still needs colour calibration."
+      },
+      {
+        "x": 57,
+        "y": 86,
+        "label": "Camera ribbon cable",
+        "detail": "CSI connection into the enclosure."
+      },
+      {
+        "x": 33,
+        "y": 64,
+        "label": "Tilt bracket",
+        "detail": "Thumb-screw bracket used to aim the camera on the bench."
+      },
+      {
+        "x": 80,
+        "y": 18,
+        "label": "Two antennas",
+        "detail": "External antennas for the wireless module. They are not GPS antennas."
+      },
+      {
+        "x": 26,
+        "y": 89,
+        "label": "Power switch",
+        "detail": "Illuminated push switch."
+      }
+    ],
+    "notPictured": [
+      "USB RGB camera used for validation work",
+      "u-blox USB GPS receiver"
+    ],
+    "capabilities": [
+      {
+        "state": "working",
+        "label": "Works today",
+        "items": [
+          "TensorRT inference on the Jetson GPU",
+          "RGB photo acquisition with the USB camera used for validation"
+        ]
+      },
+      {
+        "state": "progress",
+        "label": "In progress for TRL4",
+        "items": [
+          "GPS handling with the u-blox USB receiver",
+          "Colour calibration of the CSI camera",
+          "Reviewed observations and reproducible evidence export"
+        ]
+      },
+      {
+        "state": "absent",
+        "label": "Not implemented",
+        "items": [
+          "Navigation",
+          "Stereo depth",
+          "Autonomous flight",
+          "Spraying",
+          "Continual or online learning"
+        ]
+      }
+    ],
+    "healthNote": "Device health and storage status change over time. We show them only from a fresh, dated evidence export. A mounted SSD does not prove the storage is healthy.",
+    "scan": null
+  },
+  "footer": {
+    "boundary": "This page is a presentation. Nothing on it is connected to the device, and the 3D platforms are concept visualisations, not device output.",
+    "privacy": "No farm coordinates, parcel boundaries or hardware credentials are published here. The public replay refers only to a regional reference area near Oradea.",
+    "contact": "Contact details: to be supplied by the owner before publication.",
+    "credits": [
+      {
+        "item": "Prototype photograph",
+        "detail": "Supplied by the owner; cropped and stripped of all metadata"
+      },
+      {
+        "item": "Humanoid vision renders",
+        "detail": "AI-generated for this site (Grok Bot image generation, Nov 2026); concept art, not a product or device output"
+      },
+      {
+        "item": "3D models, crop, canopy and diagrams",
+        "detail": "Drawn procedurally for this site; concept visualisations"
+      },
+      {
+        "item": "Soil texture “Brown Mud Dry”",
+        "detail": "Rob Tuytel, Poly Haven, CC0",
+        "href": "https://polyhaven.com/a/brown_mud_dry"
+      },
+      {
+        "item": "three.js r160",
+        "detail": "MIT licence",
+        "href": "https://threejs.org/"
+      },
+      {
+        "item": "Inter, Newsreader, IBM Plex Mono",
+        "detail": "SIL Open Font License 1.1"
+      }
+    ]
+  },
+  "heroLinks": [
+    {
+      "href": "#loop",
+      "label": "How it works with M4"
+    },
+    {
+      "href": "#landscape",
+      "label": "Where it fits, and where we are behind"
+    },
+    {
+      "href": "#evidence",
+      "label": "Evidence, with its limits"
+    },
+    {
+      "href": "#fit",
+      "label": "Every call requirement, mapped"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "kicker": "How it learns",
+  "title": "Learning happens offline, by people, in versions",
+  "status": "This is the process QUERRA is putting in place for TRL4–7. It is not yet a validated pipeline.",
+  "steps": [
+    { "id": "collect", "label": "Collect", "text": "Each photo is saved with its station, visit and specimen IDs, its camera settings, and GPS and time where available. The model's output is stored next to the photo and never used as a label." },
+    { "id": "review", "label": "Independent review", "text": "A reviewer who did not take the photo labels it and records their confidence. They can disagree with the model. Disagreements are kept, not overwritten." },
+    { "id": "split", "label": "Group-aware split", "text": "Train, validation and test sets are split by field, station, visit and specimen. Near-identical photos can never sit on both sides of the split. Several photos of one plant count as one specimen." },
+    { "id": "train", "label": "Offline training", "text": "Training runs off the device on a frozen, versioned dataset. The device never learns in the field." },
+    { "id": "evaluate", "label": "Untouched evaluation", "text": "Test groups stay locked until the final evaluation. Results are reported with sample counts, uncertainty and known limits." },
+    { "id": "deploy", "label": "Approved deployment", "text": "A named person approves each model version before it ships. Every inference records the model version that produced it." },
+    { "id": "monitor", "label": "Monitor & roll back", "text": "Reviewer disagreement and field failures are tracked per version. Any version can be rolled back to the previous approved one." }
+  ],
+  "guardrails": [
+    "The public weather and Sentinel-2 replay is context only. It does not train an agronomic model.",
+    "Several nearby photos of one plant are not independent specimens.",
+    "There is no automatic or online learning on the device."
+  ],
+  "splitDemo": {
+    "title": "Why the split is by group",
+    "groups": [
+      { "id": "STN-01 · V-01", "n": 5 },
+      { "id": "STN-01 · V-02", "n": 3 },
+      { "id": "STN-02 · V-01", "n": 4 },
+      { "id": "STN-03 · V-01", "n": 6 },
+      { "id": "STN-04 · V-01", "n": 3 },
+      { "id": "STN-05 · V-01", "n": 4 }
+    ],
+    "assignment": ["train", "train", "train", "validation", "train", "test"],
+    "note": "Illustrative groups. A whole group goes to one set. Splitting photos at random would leak near-duplicates from training into the test set."
+  }
+}

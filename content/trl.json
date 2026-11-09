@@ -1,0 +1,84 @@
+{
+  "kicker": "Manageable TRL scope",
+  "title": "What the 12-month project can honestly reach",
+  "body": "Definitions follow the standard Horizon Europe TRL scale quoted in Annex 1.1. The funded path ends at TRL7 with a portable or simply cart-mounted unit.",
+  "notPrerequisites": [
+    "A custom autonomous rover",
+    "A drone fleet",
+    "A robotic arm",
+    "A full sowing-to-harvest biological trial"
+  ],
+  "levels": [
+    {
+      "level": "TRL1",
+      "name": "Basic principles observed",
+      "state": "roadmap",
+      "stateLabel": "Roadmap description",
+      "text": "Leaf symptoms on cereals are visible in RGB photographs and can be photographed in repeatable ways.",
+      "note": "No supporting historical evidence has been supplied for this page."
+    },
+    {
+      "level": "TRL2",
+      "name": "Technology concept formulated",
+      "state": "roadmap",
+      "stateLabel": "Roadmap description",
+      "text": "A portable edge device that photographs, infers, records uncertainty and hands each result to a human reviewer.",
+      "note": "No supporting historical evidence has been supplied for this page."
+    },
+    {
+      "level": "TRL3",
+      "name": "Experimental proof of concept",
+      "state": "roadmap",
+      "stateLabel": "Roadmap description",
+      "text": "Inference on the Jetson with a trained classifier on historical images.",
+      "note": "No supporting historical evidence has been supplied for this page. The historical-source recheck is listed under Evidence with its limits."
+    },
+    {
+      "level": "TRL4",
+      "name": "Technology validated in lab",
+      "state": "target",
+      "stateLabel": "Target · 28 Nov 2026 · not yet declared",
+      "text": "A bounded scouting application validated in the lab. It runs on the existing Jetson with an identified camera, GPS handling and GPU inference, and produces reviewed observations and reproducible evidence.",
+      "note": "Annex 1 eligibility criterion 14 requires a starting TRL of at least 4. Supply the evidence before the application is submitted."
+    },
+    {
+      "level": "TRL5",
+      "name": "Technology validated in relevant environment",
+      "state": "planned",
+      "stateLabel": "Planned · Sprint 3",
+      "text": "The same workflow validated in a relevant agricultural environment, including acquisition quality and performance assessed by independent reviewers.",
+      "note": ""
+    },
+    {
+      "level": "TRL6",
+      "name": "Technology demonstrated in relevant environment",
+      "state": "planned",
+      "stateLabel": "Planned · Sprint 3",
+      "text": "An integrated prototype using programme data and interfaces (M4 outputs, Data Cube, IoT Observatory), demonstrated with end users in representative conditions.",
+      "note": ""
+    },
+    {
+      "level": "TRL7",
+      "name": "System prototype demonstration in operational environment",
+      "state": "planned",
+      "stateLabel": "Planned · Sprint 4",
+      "text": "The bounded application demonstrated in an operational workflow at the programme site with farmers and advisors. The unit is portable or mounted on a simple supervised cart.",
+      "note": ""
+    }
+  ],
+  "beyond": [
+    {
+      "window": "2027–2028",
+      "text": "The field unit as a payload on an existing tramline carrier, supervised on site"
+    },
+    {
+      "window": "2028–2029",
+      "text": "Aerial surveys flag patches; the carrier photographs them for review"
+    },
+    {
+      "window": "2029–2031",
+      "text": "Research on leaf sampling with an arm for laboratory confirmation, only where task value, reliability, safety and economics justify it"
+    }
+  ],
+  "beyondNote": "These are indicative planning windows, not achieved or committed milestones."
+}

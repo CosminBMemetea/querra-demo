@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Local preview: keep noindex until the owner approves publication. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>QUERRA · One perception core</title>
+  <meta name="description" content="QUERRA: an operator-guided cereal scouting and evidence application on one portable perception core, from sowing to harvest.">
+  <meta name="theme-color" content="#10201A">
+  <meta property="og:title" content="QUERRA · One perception core">
+  <meta property="og:description" content="Agricultural edge-monitoring unit on a Jetson Orin Nano Super. Demo preview.">
+  <meta property="og:image" content="assets/vision/humanoid-hero.jpg">
+  <link rel="preload" as="image" href="assets/vision/humanoid-hero.webp" type="image/webp">
+  <link rel="icon" href="assets/img/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/v2.css">
+  <script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/", "@sparkjsdev/spark": "./vendor/spark/spark.module.min.js" } }</script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/v2.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="QUERRA, back to top">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="11" y="11" width="10" height="10" rx="2" fill="#C98A1C"/></svg>
+      <span>QUERRA</span>
+    </a>
+    <nav class="site-nav" aria-label="Sections"><ul id="site-nav"></ul></nav>
+    <div class="header-tools">
+      <button type="button" class="tool-btn" id="motion-toggle" aria-pressed="false">
+        <svg viewBox="0 0 16 16" aria-hidden="true" class="icon-pause"><rect x="3" y="2.5" width="3.4" height="11" rx="1"/><rect x="9.6" y="2.5" width="3.4" height="11" rx="1"/></svg>
+        <svg viewBox="0 0 16 16" aria-hidden="true" class="icon-play"><path d="M4 2.6v10.8a.6.6 0 0 0 .9.5l8.6-5.4a.6.6 0 0 0 0-1L4.9 2.1a.6.6 0 0 0-.9.5z"/></svg>
+        <span class="tool-label">Pause motion</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 0 · Cinematic hero (vision render + honest status) -->
+    <section class="hero-x" id="hero" aria-labelledby="hero-x-title">
+      <picture class="hero-x-media">
+        <source media="(max-width: 700px)" srcset="assets/vision/humanoid-hero-sm.webp" type="image/webp">
+        <source srcset="assets/vision/humanoid-hero.webp" type="image/webp">
+        <img src="assets/vision/humanoid-hero.jpg" width="1280" height="720" alt="Concept render: an ivory and graphite humanoid robot with an amber visor examines a wheat stem in a field at golden hour. Vision artwork, not a built product." fetchpriority="high" decoding="async">
+      </picture>
+      <div class="hero-x-shade" aria-hidden="true"></div>
+      <div class="hero-x-grid" aria-hidden="true"></div>
+      <div class="hero-x-inner">
+        <p class="hero-x-kicker"><span class="dot"></span>QUERRA · Gepiu, Bihor · NOSTRADAMUS Open Call #1</p>
+        <h1 id="hero-x-title">One perception core.<br><em>A whole growing season.</em></h1>
+        <p class="hero-x-lede">An operator-guided scouting and evidence unit for cereal fields. RGB photographs, GPU inference on an NVIDIA Jetson Orin Nano Super, uncertainty on every result, human review, traceable exports. Agriculture first.</p>
+        <div class="hero-x-cta">
+          <a class="cta primary" href="#evolution">See the real device <span aria-hidden="true">→</span></a>
+          <a class="cta ghost" href="#evidence">Evidence, with its limits</a>
+        </div>
+        <ul class="hero-x-facts" aria-label="Status at a glance">
+          <li><span class="k">Works today</span><span class="v">TensorRT inference on the Jetson GPU</span></li>
+          <li><span class="k">TRL 4 · lab</span><span class="v">Target · not yet declared</span></li>
+          <li><span class="k">Programme target</span><span class="v">TRL 7 · portable or cart-mounted</span></li>
+        </ul>
+      </div>
+      <p class="hero-x-label"><span class="tag">Vision render</span> AI-generated concept art. No humanoid is built or planned in the funded project; humanoid and manipulation research is a 2029–2031 window beyond TRL7.</p>
+      <a class="hero-x-scroll" href="#evolution" aria-label="Scroll to the product evolution"><span></span></a>
+    </section>
+
+    <!-- 1 · Product evolution -->
+    <section class="evolution" id="evolution" aria-labelledby="hero-title">
+      <div class="evo-grid">
+        <div class="evo-steps" id="evo-steps"></div>
+        <div class="evo-visual" id="evo-visual" aria-label="Product evolution visual"></div>
+      </div>
+    </section>
+
+    <section class="section loop" id="loop" aria-labelledby="loop-title"></section>
+    <section class="section device" id="device" aria-labelledby="device-title"></section>
+    <section class="section trl" id="trl" aria-labelledby="trl-title"></section>
+    <section class="vision-x" id="vision" aria-labelledby="vision-title">
+      <div class="vision-x-wrap">
+        <figure class="vision-x-fig">
+          <picture>
+            <source media="(max-width: 700px)" srcset="assets/vision/humanoid-leaf-sm.webp" type="image/webp">
+            <source srcset="assets/vision/humanoid-leaf.webp" type="image/webp">
+            <img src="assets/vision/humanoid-leaf.jpg" width="864" height="1152" loading="lazy" decoding="async" alt="Concept render: a humanoid robot kneels on soil and inspects a spotted wheat leaf beside a small camera unit. Vision artwork.">
+          </picture>
+          <figcaption><span class="tag">Vision render</span> AI-generated concept art · not a product, not device output</figcaption>
+        </figure>
+        <div class="vision-x-copy">
+          <p class="kicker">Long-range vision · beyond TRL7</p>
+          <h2 id="vision-title">The same eyes, <em>someday with hands.</em></h2>
+          <p class="lede">The perception core is the part we are building now. The humanoid is where the idea could lead: a field assistant that looks closely at a leaf, records what it sees and hands the decision to a person.</p>
+          <ol class="vision-x-path">
+            <li><span class="w">Now → 2027</span><span>Portable or cart-mounted unit · TRL4 target, then TRL5–7 in the funded sprints</span></li>
+            <li><span class="w">2027–2028</span><span>The field unit as a payload on an existing tramline carrier, supervised on site</span></li>
+            <li><span class="w">2028–2029</span><span>Aerial surveys flag patches; the carrier photographs them for review</span></li>
+            <li><span class="w">2029–2031</span><span>Manipulation and humanoid research, only where task value, reliability, safety and economics justify it</span></li>
+          </ol>
+          <p class="vision-x-note">Indicative planning windows, not achieved or committed milestones. A robot, drone fleet or humanoid is not a prerequisite for the 12-month project.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section season" id="season" aria-labelledby="season-title"></section>
+    <section class="section learning" id="learning" aria-labelledby="learning-title"></section>
+    <section class="section evidence" id="evidence" aria-labelledby="evidence-title"></section>
+    <section class="section landscape" id="landscape" aria-labelledby="landscape-title"></section>
+    <section class="section programme" id="programme" aria-labelledby="programme-title"></section>
+    <section class="section fit" id="fit" aria-labelledby="fit-title"></section>
+  </main>
+
+  <footer class="site-footer" id="footer"></footer>
+
+  <noscript>
+    <div class="noscript">
+      <h1>QUERRA · One perception core. A whole growing season.</h1>
+      <p>This page builds its sections from editable content files with JavaScript. Without JavaScript you can still see the photograph of the actual prototype below. The full content lives in <code>content/*.json</code>.</p>
+      <img src="assets/img/core-desk-portrait.jpg" width="525" height="700" alt="Photograph of the QUERRA prototype: black aluminium enclosure, camera bracket with a two-lens camera board, two antennas.">
+    </div>
+  </noscript>
+</body>
+</html>
