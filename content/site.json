@@ -25,6 +25,10 @@
       "label": "Vision"
     },
     {
+      "href": "#fenceguard",
+      "label": "FenceGuard"
+    },
+    {
       "href": "#season",
       "label": "Season"
     },

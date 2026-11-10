@@ -102,6 +102,57 @@
         </div>
       </div>
     </section>
+    <!-- FenceGuard · second product line (separate from the NOSTRADAMUS project) -->
+    <section class="fg-x" id="fenceguard" aria-labelledby="fg-title">
+      <div class="fg-wrap">
+        <div class="fg-head">
+          <p class="kicker">QUERRA FenceGuard · second product line · MVP in progress</p>
+          <h2 id="fg-title">Electric pasture fences, <em>checked from the air.</em></h2>
+          <p class="lede">Cattle farms lose hours walking kilometres of electric fence to find one fault. FenceGuard flies the fence line, photographs it and lets QUERRA ground AI point the farmer to the spot: what is wrong, where, with a photo.</p>
+          <p class="fg-status"><span class="tag">Status</span> MVP being assembled with two partner farms in Bihor. Not field-validated; no detection results yet. Separate from the NOSTRADAMUS cereal project.</p>
+        </div>
+
+        <ol class="fg-flow" aria-label="FenceGuard loop">
+          <li><span class="n">01</span><strong>Patrol</strong><span>Saved waypoint route along the fence, fixed height and speed</span></li>
+          <li><span class="n">02</span><strong>Capture</strong><span>Geotagged photos of every fence section</span></li>
+          <li><span class="n">03</span><strong>Ground AI</strong><span>QUERRA model on the farm edge station flags wire down, branches, vegetation on the line</span></li>
+          <li><span class="n">04</span><strong>Alert</strong><span>Farmer gets a message with photo and GPS pin</span></li>
+        </ol>
+
+        <div class="fg-cards">
+          <article class="fg-card now">
+            <p class="fg-label"><span class="pill now">Now · MVP</span> in progress</p>
+            <h3>Off-the-shelf drone + QUERRA ground AI</h3>
+            <ul>
+              <li>Consumer drone (DJI Mini 5 Pro, under 250 g) flying a saved waypoint patrol</li>
+              <li>A trained pilot starts each flight and keeps the drone in sight (EASA Open category)</li>
+              <li>Photos analysed after landing on the QUERRA edge station (NVIDIA Jetson Orin Nano Super) at the farm</li>
+              <li>Alert to the farmer's phone with photo and location</li>
+            </ul>
+            <p class="fg-note">Semi-automatic by design: this drone has no third-party SDK, so QUERRA software cannot start or steer it.</p>
+          </article>
+          <article class="fg-card next">
+            <p class="fg-label"><span class="pill next">Next · planned</span> not built</p>
+            <h3>QUERRA custom drone for automated patrols</h3>
+            <ul>
+              <li>Open PX4 autopilot (Pixhawk 6C) for flight; safety stays on a dedicated flight controller</li>
+              <li>Compact onboard AI module (Raspberry Pi 5 + Hailo-8, 26 TOPS) that spots a fault in flight and takes a closer look</li>
+              <li>Stabilised zoom gimbal camera for thin fence wire</li>
+              <li>Mission sent from the edge station when a fence sensor reports a voltage drop</li>
+            </ul>
+            <p class="fg-note">Fully unattended flights from a dock need an EASA Specific-category (BVLOS) authorisation. Not promised before that exists.</p>
+          </article>
+        </div>
+
+        <dl class="fg-facts" aria-label="FenceGuard status at a glance">
+          <div><dt>Works today</dt><dd>Vegetation segmentation on the Jetson GPU (cereal project)</dd></div>
+          <div><dt>Being built</dt><dd>Fence patrol route, photo pipeline, farmer alerts</dd></div>
+          <div><dt>Next proof</dt><dd>Staged faults on one known fence section, blind test</dd></div>
+          <div><dt>Not claimed</dt><dd>Detection rates, autonomy, unattended flight</dd></div>
+        </dl>
+        <p class="fg-fine">Product names are used only to describe the hardware; QUERRA is not affiliated with DJI, NVIDIA, Holybro or Raspberry Pi. Planned capabilities are design targets, not results.</p>
+      </div>
+    </section>
     <section class="section season" id="season" aria-labelledby="season-title"></section>
     <section class="section learning" id="learning" aria-labelledby="learning-title"></section>
     <section class="section evidence" id="evidence" aria-labelledby="evidence-title"></section>
